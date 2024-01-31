@@ -16,13 +16,18 @@ const Naviagtion = {
 
 const Socials = {
   navs: [
-    { href: "https://github.com/KelvinatorWas", label: "Github", icon: <GitHub/> },
+    {
+      href: "https://github.com/KelvinatorWas",
+      icon: <GitHub className="fill-white" />,
+    },
     {
       href: "https://www.linkedin.com/in/kalvisliepkalns/",
-      label: "LinkedIn",
-      icon: <LinkedIn/>,
+      icon: <LinkedIn className="fill-blue-200" />,
     },
-    { href: "/about", label: "Itch.io", icon: <Image src={ItchIo} width={24} height={24} alt="Itch"/> },
+    {
+      href: "https://tmtext.itch.io/",
+      icon: <Image src={ItchIo} width={24} height={24} alt="Itch" />,
+    },
   ],
 };
 
@@ -48,16 +53,13 @@ export const Header = () => {
         </nav>
 
         <div className="flex flex-grow justify-end items-center gap-2 mr-11">
-          {
-            Socials.navs.map((social, index) => {
-              return (
-                <a href={social.href} target="_blank">
-                  {social.icon}
-                </a>
-                )
-              }
-            )
-          }
+          {Socials.navs.map((social, index) => {
+            return (
+              <a href={social.href} target="_blank">
+                {social.icon}
+              </a>
+            );
+          })}
         </div>
       </div>
     </header>
