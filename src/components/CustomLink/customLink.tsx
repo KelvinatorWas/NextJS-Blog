@@ -1,5 +1,5 @@
 'use client'
-import { joinClass } from "@/utils/stringManiplation";
+import { joinClass } from "$/utils/stringManiplation";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
