@@ -1,4 +1,5 @@
 # Remake of NextJS-Blog
+Remake the old NextJs blog, to make it more pretty and more clean.
 ## Getting Started
 
 First, run the development server:
