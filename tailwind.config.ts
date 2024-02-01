@@ -11,6 +11,7 @@ const config: Config = {
       colors: {
         "tpurple": "var(--t-purple, #35357a)",
         "lblue": "var(--t-light-blue, #bccfd6)",
+        "lblue-3": "var(--t-light-blue-3, #7087b5)",
         "active": "var(--t-light-orange, #f28943)",
       },
 

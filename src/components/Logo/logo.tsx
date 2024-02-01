@@ -6,7 +6,7 @@ import CustomLink from "../CustomLink/customLink";
 const Logo = () => {
   return (
   <Link href="/" className="flex items-center ml-11 mr-11">
-    <Image src={logo} alt={"Kelvinator"} className="rounded-3xl size-14 border-2 mr-2"/>
+    <Image src={logo} alt={"Kelvinator"} className="rounded-3xl size-14 border-2 mr-2 hover:scale-125 transition-all ease duration-300"/>
   </Link>
   );
 };
