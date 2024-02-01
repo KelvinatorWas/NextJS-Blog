@@ -1,46 +1,33 @@
 import Link from "next/link";
 
-type BaseColorsType = {
+type ColorsType = {
   bgColor?: string;
   borderColor?: string;
   labelColor?: string;
 };
 
-type HoverColorsType = {
-  hoverBgColor?: string;
-  hoverBorderColor?: string;
-  hoverLabelColor?: string;
-};
-
 type RouteButtonProps = {
   label: string;
-  baseColors?: BaseColorsType;
-  hoverColors?: HoverColorsType;
+  baseColors?: ColorsType;
+  hoverColors?: ColorsType;
   href?: string;
 };
 
-const DefaultBaseColors: BaseColorsType = {
+const DefaultColors: ColorsType = {
   bgColor: "bg-lblue",
   labelColor: "text-black",
   borderColor: "border-tpurple",
 } 
 
-const DefaultHoverColors: HoverColorsType = {
-  hoverBgColor: "bg-lblue",
-  hoverLabelColor: "text-black",
-  hoverBorderColor: "border-tpurple",
-} 
-
-
-const compareProps =  <T extends Record<string, any>>(a:T, b:T) => {
+const compareProps =  <T extends Record<string, any>>(a:T, b:T, action=false) => {
   const aKeys = Object.keys(a); 
   const bKeys = Object.keys(b);
   let className:string[] = [];
 
   aKeys.forEach((v) => {
     const check = bKeys.includes(v);
-    if (check && b.hasOwnProperty(v)) className.push(b[v]);
-    else className.push(a[v]);
+    if (check && b.hasOwnProperty(v) && action) className.push(`${b[v]}`);
+    else if (check && b.hasOwnProperty(v) && !action) className.push(`${a[v]}`);
 
   })
   return className.join(" ");
@@ -49,7 +36,7 @@ const compareProps =  <T extends Record<string, any>>(a:T, b:T) => {
 const combineStyles = <T extends Record<string, string>>(styleObject:T) => {
   let className:string[] = [];
 
-  for (const i in styleObject) className.push(i);
+  for (const i in styleObject) className.push(styleObject[i]);
   
   return className.join(" ");
 }
@@ -63,22 +50,17 @@ const RouteButton = ({
 }: RouteButtonProps) => { 
   const finalHref = href || "/$a";
 
-  const finalBaseColors = !baseColors ? combineStyles(DefaultBaseColors) : compareProps(DefaultBaseColors, baseColors);
-  const finalHoverColors = !hoverColors ? "" : compareProps(DefaultHoverColors, hoverColors);
+  const finalBaseColors = !baseColors ? combineStyles(DefaultColors) : compareProps(DefaultColors, baseColors);
+  const finalHoverColors = hoverColors ? compareProps(DefaultColors, hoverColors, true) : "";
   
-  const finalStyleClass = `
-    ${finalBaseColors} 
-    ${finalHoverColors}
-  `;
+  console.log("COLOR-HOVER", finalHoverColors)
+
+  const finalStyleClass = `${finalBaseColors} ${finalHoverColors}`;
 
   return (
     <Link href={finalHref}>
     <div
-      className="
-      flex p-3 items-center h-12
-      bg-lblue rounded-sm mt-3 
-      border-b-2 border-tpurple
-      "
+      className={`flex p-3 items-center h-12 ${finalStyleClass} rounded-sm mt-3 border-b-2`}
       >
       <span className="flex font-bold text-sm select-none">{label}</span>
     </div>

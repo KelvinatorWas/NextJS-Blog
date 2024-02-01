@@ -2,6 +2,7 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import { GetSessionParams, getSession } from "next-auth/react";
+import RouteButton from "@/src/components/AdminComponents/RouteButton";
 
 const AdminPanel = async () => {
   const session = await getServerSession(authOptions);
@@ -19,15 +20,13 @@ const AdminPanel = async () => {
           </span>
         </div>
 
-        <div
-          className="
-                flex p-3 items-center h-12
-                bg-lblue rounded-sm mt-3 
-                border-b-2 border-tpurple
-                "
-        >
-          <span className="flex font-bold text-sm select-none">All Blogs</span>
-        </div>
+        <RouteButton
+          label="All Blogs"
+          hoverColors={{
+            labelColor:'hover:text-white',
+            bgColor:'hover:bg-blue-900',
+          }}
+        />
 
         <div
           className="
