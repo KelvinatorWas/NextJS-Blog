@@ -1,8 +1,8 @@
-import React, { ReactSVGElement } from "react";
 import { Book, GitHub, Home, Info, LinkedIn } from "@mui/icons-material";
 import CustomLink from "../CustomLink/customLink";
 import Logo from "../Logo/logo";
-import Image from "next/image";
+import { url } from "inspector";
+import { headers } from "next/headers";
 
 const Naviagtion = {
   navs: [
@@ -49,6 +49,7 @@ const Socials = {
 };
 
 export const Header = () => {
+
   return (
     <header className="flex px-5 py-4 bg-tpurple text-lblue border-b-2 border-black shadow shadow-black">
       <div className="flex flex-row flex-grow items-center gap-2.5">
