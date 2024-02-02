@@ -1,0 +1,12 @@
+@tailwind base;
+
+.editor-minmax-height {
+  min-height: 600px;
+  max-height: 800px;
+}
+
+.toolbar-style {
+  border: 1px solid gray;
+  border-radius: 4px;
+  background-color: white;
+}

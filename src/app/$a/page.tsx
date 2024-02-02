@@ -14,40 +14,42 @@ const AdminPanel = async () => {
     <main className="grid grid-cols-3 grid-rows-3 m-3 gap-2">
       {/* Dashboard */}
       <section className="flex flex-col p-3 pt-0 bg-lblue-3 rounded-sm shadow-lg shadow-gray-500">
-        <div className="flex p-3 items-center h-12 bg-lblue rounded-sm mt-3 border-b-2 border-tpurple">
-          <span className="flex font-bold text-sm select-none">
-            Create New Blog
-          </span>
-        </div>
+        <RouteButton
+          label="Create New Blog"
+          href="/$a/createblog"
+          hoverColors={{
+            labelColor: "hover:text-white",
+            bgColor: "hover:bg-blue-600",
+            borderColor: "hover:bg-blue-900",
+          }}
+        />
 
         <RouteButton
           label="All Blogs"
           hoverColors={{
-            labelColor:'hover:text-white',
-            bgColor:'hover:bg-blue-900',
+            labelColor: "hover:text-white",
+            bgColor: "hover:bg-blue-600",
+            borderColor: "hover:bg-blue-900",
           }}
         />
 
-        <div
-          className="
-                flex p-3 items-center h-12
-                bg-lblue rounded-sm mt-3 
-                border-b-2 border-tpurple
-                "
-        >
-          <span className="flex font-bold text-sm select-none">All Blogs</span>
-        </div>
+        <RouteButton
+          label="All Comments"
+          hoverColors={{
+            labelColor: "hover:text-white",
+            bgColor: "hover:bg-blue-600",
+            borderColor: "hover:bg-blue-900",
+          }}
+        />
 
-        <div
-          className="
-                flex p-3 items-center h-12
-                bg-lblue rounded-sm mt-3 
-                border-b-2 border-tpurple
-                "
-        >
-          <span className="flex font-bold text-sm select-none">All Blogs</span>
-        </div>
-
+        <RouteButton
+          label="Test"
+          hoverColors={{
+            labelColor: "hover:text-white",
+            bgColor: "hover:bg-blue-600",
+            borderColor: "hover:bg-blue-900",
+          }}
+        />
       </section>
     </main>
   );

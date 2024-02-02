@@ -48,7 +48,7 @@ const RouteButton = ({
   hoverColors,
   href,
 }: RouteButtonProps) => { 
-  const finalHref = href || "/$a";
+  const finalHref = href || "/";
 
   const finalBaseColors = !baseColors ? combineStyles(DefaultColors) : compareProps(DefaultColors, baseColors);
   const finalHoverColors = hoverColors ? compareProps(DefaultColors, hoverColors, true) : "";
