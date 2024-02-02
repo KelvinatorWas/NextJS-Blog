@@ -1,12 +1,15 @@
-import CEditor from '@/src/components/AdminComponents/Editor/Editor'
-import React from 'react'
+import CEditor from "@/src/components/AdminComponents/Editor/Editor";
+import React from "react";
 
 const CreateNewBlog = () => {
   return (
     <section>
-      <CEditor />
+      {/* Editor */}
+      <div className="flex flex-col items-center">
+        <CEditor />
+      </div>
     </section>
-  )
-}
+  );
+};
 
-export default CreateNewBlog
+export default CreateNewBlog;
