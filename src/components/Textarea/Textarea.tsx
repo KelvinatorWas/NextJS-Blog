@@ -3,6 +3,7 @@ import {
   mergeStyles,
 } from "@/src/utils/objectStyleManipulation";
 import { joinClass } from "@/src/utils/stringManiplation";
+import { ChangeEvent } from "react";
 
 type ColorsType = {
   bgColor?: string;
@@ -32,7 +33,9 @@ type TextareaProps = {
   className?: string;
   baseColors?: ColorsType;
   border?: string;
-  resize?: boolean
+  resize?: boolean;
+  getValue?: (value: string) => void;
+  setValue?: string;
 };
 
 const Textarea = (props: TextareaProps) => {
@@ -44,15 +47,23 @@ const Textarea = (props: TextareaProps) => {
     ? combineStyles(DefaultColors)
     : mergeStyles(DefaultColors, props.baseColors);
 
-  
-  const finalStyleClass = `${props.resize ? (props.resize ? "" : "resize-none") : "resize-none"} ${finalBaseColors}`;
+  const finalStyleClass = `${
+    props.resize ? (props.resize ? "" : "resize-none") : "resize-none"
+  } ${finalBaseColors}`;
   const finalClassName = props.className || "";
+
+  const onChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    if (!props.getValue) return;
+
+    props.getValue(e.target.value);
+  };
 
   return (
     <textarea
       placeholder={props.placeholder}
       className={joinClass(finalSizeStyle, finalStyleClass, finalClassName)}
-      
+      onChange={onChange}
+      value={props.setValue}
     />
   );
 };

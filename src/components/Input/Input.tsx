@@ -1,8 +1,10 @@
+"use client";
 import {
   combineStyles,
   mergeStyles,
 } from "@/src/utils/objectStyleManipulation";
 import { joinClass } from "@/src/utils/stringManiplation";
+import { ChangeEvent, ChangeEventHandler } from "react";
 
 type ColorsType = {
   bgColor?: string;
@@ -33,6 +35,8 @@ type InputProps = {
   hoverColors?: ColorsType;
   baseColors?: ColorsType;
   border?: string;
+  getValue?: (value: string) => void;
+  setValue?: string;
 };
 
 const Input = (props: InputProps) => {
@@ -47,14 +51,22 @@ const Input = (props: InputProps) => {
   const finalHoverColors = props.hoverColors
     ? mergeStyles(DefaultColors, props.hoverColors, true)
     : "";
-  
+
   const finalStyleClass = `${finalBaseColors} ${finalHoverColors}`;
   const finalClassName = props.className || "";
+
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (!props.getValue) return;
+
+    props.getValue(e.target.value);
+  };
 
   return (
     <input
       placeholder={props.placeholder}
       className={joinClass(finalSizeStyle, finalStyleClass, finalClassName)}
+      onChange={onChange}
+      value={props.setValue}
     />
   );
 };
