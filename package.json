@@ -13,7 +13,10 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.15.7",
     "@mui/material": "^5.15.7",
+    "dompurify": "^3.0.8",
+    "draft-convert": "^2.1.13",
     "draft-js": "^0.11.7",
+    "draftjs-to-html": "^0.9.1",
     "next": "14.1.0",
     "next-auth": "^4.24.5",
     "react": "^18",
@@ -21,6 +24,9 @@
     "react-draft-wysiwyg": "^1.15.0"
   },
   "devDependencies": {
+    "@types/dompurify": "^3.0.5",
+    "@types/draft-convert": "^2.1.8",
+    "@types/draftjs-to-html": "^0.8.4",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

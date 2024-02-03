@@ -1,14 +1,30 @@
 "use client";
-import { EditorState } from "draft-js";
-import { useState } from "react";
+import { EditorState, convertToRaw } from "draft-js";
+import { useEffect, useState } from "react";
 import { Editor } from "react-draft-wysiwyg";
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import DOMPurify from "dompurify";
 import "./style.css";
+import draftToHtml from "draftjs-to-html";
 
 const CEditor = () => {
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
+
+  const [convertedData, setConvertedData] = useState("");
+
+  useEffect(() => {
+    const rawData = convertToRaw(editorState.getCurrentContent());
+    const markup = draftToHtml(rawData);
+
+    setConvertedData(markup);
+  });
+
+  const purifyHTML = (html: string) => {
+    return {
+      __html: DOMPurify.sanitize(html),
+    };
+  };
 
   return (
     <section className="w-3/4 mt-4">
@@ -20,6 +36,12 @@ const CEditor = () => {
         editorClassName="bg-white px-2 border border-gray-500 rounded-md editor-minmax-height"
         toolbarClassName="toolbar-style"
       />
+      <section className="p-2 mt-4 bg-lblue border border-gray-500 min-h-96 rounded-md mb-4">
+        <h2 className="ml-1 my-2">Preview</h2>
+        <div className="bg-white px-2 min-h-96 border border-gray-500 rounded-md">
+          <div className="mt-4" dangerouslySetInnerHTML={purifyHTML(convertedData)}></div>
+        </div>
+      </section>
     </section>
   );
 };
