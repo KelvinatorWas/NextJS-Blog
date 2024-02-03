@@ -38,7 +38,7 @@ const CEditor = () => {
       />
       <section className="p-2 mt-4 bg-lblue border border-gray-500 min-h-96 rounded-md mb-4">
         <h2 className="ml-1 my-2">Preview</h2>
-        <div className="bg-white px-2 min-h-96 border border-gray-500 rounded-md">
+        <div className="bg-white px-2 min-h-96 max-h-96 border border-gray-500 rounded-md overflow-hidden overflow-y-scroll ">
           <div className="mt-4" dangerouslySetInnerHTML={purifyHTML(convertedData)}></div>
         </div>
       </section>
