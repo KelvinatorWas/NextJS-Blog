@@ -24,7 +24,6 @@ export const uploadData = async <T>(link: string, data: T) => {
 
     if (!res.ok) return [];
 
-    return res.json();
   } catch (error) {
     console.error("Error uploading data:", error);
     throw error;

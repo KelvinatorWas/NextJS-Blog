@@ -1,7 +1,7 @@
 type BlogData = {
   post_id: number;
   title: string;
-  desc: string;
+  description: string;
   content: string;
   createdAt: string | null;
   updatedAt: string | null;
