@@ -1,5 +1,9 @@
 export const About = () => {
-  return <div>About Not Yet Implemented</div>;
+  return (
+  <main>
+    <div>About Not Yet Implemented</div>
+  </main>
+  )
 };
 
 export default About;

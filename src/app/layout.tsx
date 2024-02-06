@@ -4,6 +4,7 @@ import "./globals.css";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 import { Header } from "$/components/Header/header";
+import { Footer } from "../components/Footer/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
