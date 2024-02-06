@@ -71,7 +71,7 @@ const AdminPanel = async () => {
               <div className="flex flex-row mx-3 items-center bg-lblue text-md rounded-sm font-bold">
                 <span className="bg-tpurple text-white border-r-2 p-3 rounded-sm border-active">{title}</span>
                 <div className="mx-2">
-                  <span className="text-xs font-normal overflow-hidden">{description}</span>
+                  <span className="text-xs font-normal">{description}</span>
                 </div>
               </div>
             );
