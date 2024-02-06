@@ -5,10 +5,8 @@ import Input from "@/src/components/Input/Input";
 import Textarea from "@/src/components/Textarea/Textarea";
 import { uploadData } from "@/src/utils/crud";
 import { DB_BLOGS } from "@/src/utils/serverLinks";
-import { BlogData } from "@/src/utils/types";
 import { format } from "date-fns";
-import { Content } from "next/font/google";
-import React, { MouseEventHandler, useState } from "react";
+import React, { useState } from "react";
 
 const CreateBlog = () => {
   const [blogContent, setBlogContent] = useState("");

@@ -1,5 +1,5 @@
 import { DB_ADMINS, linkComb } from "$/utils/serverLinks";
-import { uploadData } from "$/utils/crud";
+import { checkCredentals } from "$/utils/crud";
 import { NextAuthOptions } from "next-auth";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -17,7 +17,7 @@ export const authOptions:NextAuthOptions = {
         // Add logic here to look up the user from the credentials supplied
         
 
-        const user = await uploadData(DB_ADMINS, {...credentials});
+        const user = await checkCredentals(DB_ADMINS, {...credentials});
         
         if (credentials?.username === user.username) {
           // Any object returned will be saved in `user` property of the JWT
