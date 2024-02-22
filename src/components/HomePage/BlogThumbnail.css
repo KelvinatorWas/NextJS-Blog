@@ -1,0 +1,13 @@
+.most-recent-post {
+  height: 600px;
+}
+
+.thumbnail-title {
+  background-color: rgb(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.thumbnail_img {
+  background-image: url("https://picsum.photos/1280/720");
+  background-size: cover;
+}
